@@ -36,7 +36,6 @@ Implementation Notes
 
 """
 import busio
-import board
 
 from adafruit_pcf8574 import PCF8574
 from adafruit_character_lcd.character_lcd import Character_LCD_Mono
