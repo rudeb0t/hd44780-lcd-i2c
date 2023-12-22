@@ -41,6 +41,16 @@ from adafruit_pcf8574 import PCF8574
 from adafruit_character_lcd.character_lcd import Character_LCD_Mono
 
 
+# I2C pins
+RS_PIN = 0
+EN_PIN = 2
+DB4_PIN = 4
+DB5_PIN = 5
+DB6_PIN = 6
+DB7_PIN = 7
+BACKLIGHT_PIN = 3
+
+
 class HD44780_LCD_I2C(Character_LCD_Mono):
     # pylint: disable=too-few-public-methods, too-many-arguments
     """HD44780 Character LCD connected to a PCF8574 I2C/SPI backpack using its I2C
@@ -69,14 +79,14 @@ class HD44780_LCD_I2C(Character_LCD_Mono):
         pcf = PCF8574(i2c, address)
 
         super().__init__(
-            rs=pcf.get_pin(0),
-            en=pcf.get_pin(2),
-            db4=pcf.get_pin(4),
-            db5=pcf.get_pin(5),
-            db6=pcf.get_pin(6),
-            db7=pcf.get_pin(7),
+            rs=pcf.get_pin(RS_PIN),
+            en=pcf.get_pin(EN_PIN),
+            db4=pcf.get_pin(DB4_PIN),
+            db5=pcf.get_pin(DB5_PIN),
+            db6=pcf.get_pin(DB6_PIN),
+            db7=pcf.get_pin(DB7_PIN),
             columns=columns,
             lines=lines,
-            backlight_pin=pcf.get_pin(3),
+            backlight_pin=pcf.get_pin(BACKLIGHT_PIN),
             backlight_inverted=backlight_inverted,
         )
